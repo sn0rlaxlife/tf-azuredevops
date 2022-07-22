@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "aks-devops" {
-  name     = "aks-resource-group"
-  location = "westus"
+  name     = "aks-devops"
+  location = "centralus"
 }
 
 module "network" {
