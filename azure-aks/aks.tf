@@ -4,7 +4,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "aks-devops" {
   name     = "aks-resource-group"
-  location = "west"
+  location = "westus"
 }
 
 module "network" {
