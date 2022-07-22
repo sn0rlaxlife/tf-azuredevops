@@ -9,7 +9,7 @@ module "network" {
   address_space       = "10.52.0.0/16"
   subnet_prefixes     = ["10.52.0.0/24"]
   subnet_names        = ["subnet1"]
-  depends_on          = [azurerm_resource_group.example]
+  depends_on          = [azurerm_resource_group.aks-devops]
 }
 
 data "azuread_group" "aks_cluster_admins" {
