@@ -22,4 +22,3 @@ resource "azurerm_resource_group" "preview-devops" {
   name     = "preview-devops"
   location = "centralus"
 }
-
