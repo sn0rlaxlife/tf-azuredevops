@@ -1,7 +1,3 @@
-provider "azurerm" {
-  features {}
-}
-
 resource "azurerm_resource_group" "aks-devops" {
   name     = "aks-resource-group"
   location = "westus"
