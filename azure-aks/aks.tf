@@ -18,7 +18,6 @@ data "azuread_group" "aks_cluster_admins" {
 
 module "aks" {
   source                           = "Azure/aks/azurerm"
-  version                          = "4.16.0"
   resource_group_name              = azurerm_resource_group.aks-devops.name
   client_id                        = "your-service-principal-client-appid"
   client_secret                    = "your-service-principal-client-password"
