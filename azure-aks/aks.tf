@@ -1,15 +1,15 @@
-resource "azurerm_resource_group" "aks-devops" {
-  name     = "aks-devops"
+resource "azurerm_resource_group" "preview-devops" {
+  name     = "preview-devops"
   location = "centralus"
 }
 
 module "network" {
   source              = "Azure/network/azurerm"
-  resource_group_name = azurerm_resource_group.aks-devops.name
+  resource_group_name = azurerm_resource_group.preview-devops.azucar
   address_space       = "10.52.0.0/16"
   subnet_prefixes     = ["10.52.0.0/24"]
   subnet_names        = ["subnet1"]
-  depends_on          = [azurerm_resource_group.aks-devops]
+  depends_on          = [azurerm_resource_group.preview-devops]
 }
 
 data "azuread_group" "aks_cluster_admins" {
@@ -18,7 +18,7 @@ data "azuread_group" "aks_cluster_admins" {
 
 module "aks" {
   source                           = "Azure/aks/azurerm"
-  resource_group_name              = azurerm_resource_group.aks-devops.name
+  resource_group_name              = azurerm_resource_group.preview-devops.azucar
   client_id                        = "your-service-principal-client-appid"
   client_secret                    = "your-service-principal-client-password"
   kubernetes_version               = "1.23.5"
@@ -47,11 +47,11 @@ module "aks" {
 
   agents_labels = {
     "nodepool" : "defaultnodepool"
-  }
+                  }
 
   agents_tags = {
     "Agent" : "defaultnodepoolagent"
-  }
+                }
   
   
   enable_ingress_application_gateway      = true
