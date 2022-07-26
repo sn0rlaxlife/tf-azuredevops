@@ -34,7 +34,3 @@ resource "random_pet" "aksrandom" {
   
 }
   
-resource "azurerm_resource_group" "preview-devops" {
-  name     = "preview-devops"
-  location = "centralus"
-}
